@@ -1,11 +1,4 @@
 @import "tailwindcss";
-@keyframes Slider {
-  from {
-    transform: translateX(-10vw);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0vw);
-    opacity: 1;
-  }
+@theme {
+  --breakpoint-sm: 360px;
 }
