@@ -15,9 +15,9 @@ export default function Navbar() {
       <Link className="font-extrabold uppercase text-xl lg:text-3xl" to={"/"}>
         <h1 className="text-nowrap">Bulky Gym</h1>
       </Link>
-      <aside>
+      <aside className="">
         <div
-          className={`mt-2 rounded-es-lg absolute lg:hidden z-10 top-0 right-0 rounded-tl-2xl bg-lime-500 transition ease-out delay-150 duration-300 transform  ${showNav ? "translate-0" : "translate-x-full"} h-screen  w-2xs`}
+          className={`mt-2 rounded-es-lg fixed lg:hidden z-10 top-0 right-0 rounded-tl-2xl bg-lime-500 transition ease-in-out duration-1500 transform  ${showNav ? "block translate-0" : "translate-x-full"} h-screen  w-2xs`}
         >
           <FaChevronRight
             className="text-3xl mt-3 text-center block w-full"
