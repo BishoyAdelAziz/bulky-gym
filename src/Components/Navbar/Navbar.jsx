@@ -1,23 +1,27 @@
+// Root Layout Navbar.jsx
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { BsLayoutSidebarInsetReverse } from "react-icons/bs";
 import { FaChevronRight } from "react-icons/fa";
 
 export default function Navbar() {
-  console.log(window.innerWidth);
   const [showNav, setShowNav] = useState(false);
+
   const Routes = [
     { name: "Profile", path: "/profile" },
     { name: "Shop", path: "/shop" },
   ];
+
   return (
-    <header className="bg-lime-500 text-black flex justify-between px-3 py-5 mx-auto rounded-3xl">
-      <Link className="font-extrabold uppercase text-xl lg:text-3xl" to={"/"}>
-        <h1 className="text-nowrap">Bulky Gym</h1>
+    <header className="bg-lime-500 text-black flex justify-between px-3 py-5 mx-auto rounded-3xl sticky top-0 z-30">
+      <Link className="font-extrabold uppercase text-xl lg:text-3xl" to="/">
+        <h1>Bulky Gym</h1>
       </Link>
-      <aside className="">
+      <aside>
         <div
-          className={`mt-2 rounded-es-lg fixed lg:hidden z-10 top-0 right-0 rounded-tl-2xl bg-lime-500 transition ease-in-out duration-1500 transform  ${showNav ? "block translate-0" : "translate-x-full"} h-screen  w-2xs`}
+          className={`mt-2 rounded-es-3xl fixed lg:hidden z-50 top-0 right-0 rounded-tl-2xl bg-lime-500 transition ease-out duration-500 transform ${
+            showNav ? "translate-x-0" : "translate-x-full"
+          } h-full sm:max-md:w-[50%] md:w-[30%]`}
         >
           <FaChevronRight
             className="text-3xl mt-3 text-center block w-full"
@@ -29,7 +33,7 @@ export default function Navbar() {
                 <Link
                   onClick={() => setShowNav(false)}
                   className=""
-                  to={`${item.path}`}
+                  to={item.path}
                 >
                   {item.name}
                 </Link>
@@ -42,10 +46,10 @@ export default function Navbar() {
           onClick={() => setShowNav(true)}
         />
         <div>
-          <ul className="flex lg:gap-4 xl:gap-6 text-center text-2xl font-medium uppercase sm:max-lg:hidden">
+          <ul className="hidden lg:flex gap-4 xl:gap-6 text-center text-2xl font-medium uppercase">
             {Routes.map((item) => (
               <li className="mx-4" key={item.name}>
-                <Link to={`${item.path}`}>{item.name}</Link>
+                <Link to={item.path}>{item.name}</Link>
               </li>
             ))}
           </ul>
